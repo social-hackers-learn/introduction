@@ -30,7 +30,10 @@
 		</script>
 		<!-- VIMEO -->
 		<script src="https://player.vimeo.com/api/player.js"></script>
-
+		<!-- 140 Bytes Template Engine -->
+		<script>
+			var render = function(a,b){return a.replace(/\${(\w+)}/ig,function(a,c){return b[c]!=[]._?b[c]:a})}
+		</script>
 
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -148,9 +151,6 @@
 							</svg>
 						  </div>
 						  <div class="column">&nbsp;</div>
-						  <script>  
-						  	var render = function(a,b){return a.replace(/\${(\w+)}/ig,function(a,c){return b[c]!=[]._?b[c]:a})}
-						  </script>
 						  <script id="browser-contents" type="text/template">
 .header {
 
@@ -226,6 +226,87 @@
 						</p>
 					</section>
 
+					<!-- Working with a VCS -->
+					<section data-state="with-vcs">
+
+						<p>Version History</p>
+
+						<!-- Days -->
+						<div class="columns">
+						  <div style="font-size: 0.7em;" data-day="day-monday" class="column fragment DISABLEDgrow highlight-orange">
+						    Monday
+						    <pre class="fragment"><code class="hljs css" data-trim contenteditable>header: #ff69b4
+								</code></pre>
+
+						  </div>
+						  <div style="font-size: 0.7em;" data-day="day-tuesday" class="column fragment DISABLEDgrow highlight-orange">
+						    Tuesday
+						    <pre class="fragment"><code class="hljs css" data-trim contenteditable>footer: #185d2c
+								</code></pre>
+						  </div>
+						  <div style="font-size: 0.7em;" data-day="day-wednesday" class="column fragment DISABLEDgrow highlight-orange">
+						    Wednesday
+						    <pre class="fragment"><code class="hljs css" data-trim contenteditable>header: #457aa5, footer: #457aa5
+								</code></pre>
+						  </div>
+						  <div style="font-size: 0.7em;" data-day="day-thursday" class="column fragment DISABLEDgrow highlight-orange">
+						    Thursday
+						    <pre class="fragment"><code class="hljs css" data-trim contenteditable>header: #a57d45
+								</code></pre>
+						  </div>
+						  <div style="font-size: 0.7em;" data-day="day-friday" class="column fragment DISABLEDgrow highlight-orange">
+						    Friday
+						    <pre class="fragment"><code class="hljs css" data-trim contenteditable>header: #457aa5, footer: #ad2222
+								</code></pre>
+						  </div>
+						</div>
+						<div class="columns">
+						  <div class="column is-4">index.html</div>
+						  <div class="column is-7">style.css</div>
+						 </div>
+
+						<div class="columns">
+						  <div class="column is-4">
+							<svg version="1.1" id="vcs-browser-site" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;" xml:space="preserve">
+								<rect style="fill:#ECF0F1;" width="58" height="58"/>
+								<rect style="fill:#546A79;" width="58" height="12"/>
+								<circle style="fill:#ED7161;" cx="6" cy="6" r="3"/>
+								<circle style="fill:#F0C419;" cx="15" cy="6" r="3"/>
+								<circle style="fill:#4FBA6F;" cx="24" cy="6" r="3"/>
+								<rect class="site-sidebar" x="45" y="17" style="fill:#BDC3C7;" width="8" height="36"/>
+								<rect class="site-menu" x="5" y="17" style="fill:#BDC3C7;" width="8" height="36"/>
+								<rect class="site-footer" x="18" y="47" style="fill:#71C285;" width="22" height="6"/>
+								<rect class="site-header" x="18" y="17" style="fill:#71C285;" width="22" height="12"/>
+								<path style="fill:#BDC3C7;" d="M28,34h-9c-0.552,0-1-0.448-1-1s0.448-1,1-1h9c0.552,0,1,0.448,1,1S28.552,34,28,34z"/>
+								<path style="fill:#BDC3C7;" d="M39,38H19c-0.552,0-1-0.448-1-1s0.448-1,1-1h20c0.552,0,1,0.448,1,1S39.552,38,39,38z"/>
+								<path style="fill:#BDC3C7;" d="M39,42H19c-0.552,0-1-0.448-1-1s0.448-1,1-1h20c0.552,0,1,0.448,1,1S39.552,42,39,42z"/>
+								<g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+							</svg>
+						  </div>
+						  <div class="column">&nbsp;</div>
+						  <script id="vcs-browser-contents" type="text/template">
+.header {
+
+  background-color: ${headercolor};
+
+}
+
+.footer {
+
+  background-color: ${footercolor};
+
+}
+						  </script>
+						  <div class="column is-7">
+							<pre><code id="vcs-browser-code" class="hljs css" data-trim contenteditable>
+								</code></pre>
+						  </div>
+						</div>
+
+
+
+					</section>	
+
 				</section>
 
 				<!-- RESOURCES -->
@@ -291,36 +372,45 @@
 			let highlightCSS = function(){
 
 				let contents = document.querySelector("#browser-contents").textContent;
+				let VCScontents = document.querySelector("#browser-contents").textContent;
 					contents = render(contents, { 'headercolor': '#71C285', 'footercolor': '#71C285' });
-					let css = document.querySelector("#browser-code");
-					css.textContent = contents;
-					hljs.highlightBlock(css);
+					VCScontents = render(VCScontents, { 'headercolor': '#71C285', 'footercolor': '#71C285' });
+				let css = document.querySelector("#browser-code");
+				let VCScss = document.querySelector("#vcs-browser-code");
+				css.textContent = contents;
+				VCScss.textContent = VCScontents;
+				hljs.highlightBlock(css);
+				hljs.highlightBlock(VCScss);
 
 			}
 
 			window.addEventListener("load",function(){
-				// highlightCSS();
+				highlightCSS();
 			});
 
 			Reveal.addEventListener( 'without-vcs', function( event ) {
 				highlightCSS();
 			});
 
-			let changeDaysColors = function(){
+			Reveal.addEventListener( 'with-vcs', function( event ) {
+				// highlightCSS();
+			});
 
-				let $browserSite = document.querySelector("#browser-site");
+			let changeDaysColors = function(selector, contentsSelector, codeSelector){
+
+				let $browserSite = document.querySelector(selector);
 				let day = event.fragment.getAttribute('data-day');
-				let contents = document.querySelector("#browser-contents").textContent;
-				let css = document.querySelector("#browser-code");
+				let contents = document.querySelector(contentsSelector).textContent;
+				let css = document.querySelector(codeSelector);
 
 				let changeColor = function(colors){
 
 					contents = render(contents, { 'headercolor': colors.header, 'footercolor': colors.footer });
 					css.textContent = contents;
 					hljs.highlightBlock(css);
-					window.poop = document.querySelector("#browser-site .site-header");
-					document.querySelector("#browser-site .site-header").style.fill = colors.header;
-					document.querySelector("#browser-site .site-footer").style.fill = colors.footer;
+					window.poop = document.querySelector(selector + " .site-header");
+					document.querySelector(selector + " .site-header").style.fill = colors.header;
+					document.querySelector(selector + " .site-footer").style.fill = colors.footer;
 				}
 
 				if ( day ){
@@ -349,7 +439,10 @@
 			}
 
 			Reveal.addEventListener( 'fragmenthidden', function( event ){});
-			Reveal.addEventListener( 'fragmentshown', function( event ){ changeDaysColors(); });
+			Reveal.addEventListener( 'fragmentshown', function( event ){ 
+				changeDaysColors("#browser-site", "#browser-contents", "#browser-code"); 
+				changeDaysColors("#vcs-browser-site", "#vcs-browser-contents", "#vcs-browser-code"); 
+			});
 
 		</script>
 
