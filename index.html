@@ -75,14 +75,39 @@
 
 			.reveal .slides section .fragment.highlight-orange.visible {
 			  color: #F7BE2C; 
+			  color: #df4c37;
 			}
 
 			.reveal .slides section .fragment.highlight-current-orange.current-fragment {
 			  color: #F7BE2C; 
+			  color: #df4c37;
 			}
 			.reveal .lightblue {
 				color: #3ca1e6;
 			}
+			div.reveal.slide.center {
+				background-image: url(img/git-icon.svg);
+				background-position: 110% -10%;
+				background-size: 25%;
+				background-repeat: no-repeat;
+			}
+			.reveal .font-medium {
+				font-size: 0.7em;
+			}
+			/* Git */
+			.reveal a.gitcolor,
+			.reveal span.gitcolor,
+			.reveal strong.gitcolor,
+			.reveal h1.gitcolor,
+			.reveal h2.gitcolor,
+			.reveal h3.gitcolor,
+			.reveal small.gitcolor,
+			.reveal h4.gitcolor,
+			.reveal h5.gitcolor,
+			.reveal h6.gitcolor {
+			  color: #df4c37;
+			}
+
 		</style>
 		<!-- Bulma.io -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
@@ -97,9 +122,9 @@
 				<!-- INTRO -->
 				<section>
 					<h1>Git 101</h1>
-					<h3 class="colorful">A Gentle Introduction to Version Control, Git &amp; GitHub</h3>
+					<h3 class="gitcolor">A Gentle Introduction to Version Control, Git &amp; GitHub</h3>
 					<p>
-						<small><a href="https://github.com/kostasx">Kosmas Pouianou, Kostas Minaidis</a></small>
+						<small><a style="color:#0388a6;" href="https://github.com/kostasx">Kosmas Pouianou, Kostas Minaidis</a></small>
 						<br/><small class="font-half">Instructors at Social Hackers Academy</small>
 					</p>
 				</section>
@@ -122,6 +147,15 @@
 					<section>
 						<h4>Prelude</h4>
 						<h3 class="fragment colorful">What does it mean to work<br/>without Version Control?</h3>
+					</section>
+
+					<!-- Daily Tasks -->
+					<section>
+						<h4>Your Daily Tasks</h4>
+						<p class="fragment"><span class="colorful">Create</span> Things</p>
+						<p class="fragment"><span class="colorful">Save</span> Things</p>
+						<p class="fragment"><span class="colorful">Edit</span> Things</p>
+						<p class="fragment">Save the Things <span class="colorful">Again</span></p>
 					</section>
 
 					<!-- Working without a VCS -->
@@ -206,8 +240,8 @@
 					<!-- What is a Version Control System? -->
 					<section>
 						<h3 class="colorful">Version Control System (VCS)</h3>
-						<p class="fragment">A system that records changes to a file or set of files over time so that you can recall specific versions later.</p>
-						<p class="fragment">A system that enables collaboration: A Team of people working on one Project, on the same files.</p>
+						<p class="fragment font-medium">A system that records changes to a file or set of files<br/>over time so that you can recall specific versions later.</p>
+						<p class="fragment font-medium">A system that enables collaboration:<br/>A Team of people working on one Project, on the same files.</p>
 					</section>
 
 					<!-- Features of VCS -->
@@ -307,6 +341,80 @@
 
 					</section>	
 
+					<!-- Daily Tasks with VCS 01 -->
+					<section>
+						<h4>Your Daily Tasks</h4>
+						<p class="fragment"><span class="colorful">Create</span> Things</p>
+						<p class="fragment"><span class="colorful">Save</span> Things</p>
+						<p class="fragment"><span class="colorful">Edit</span> Things</p>
+						<p class="fragment">Save the Things <span class="colorful">Again</span></p>
+					</section>
+
+					<!-- Daily Tasks with VCS 02 -->
+					<section>
+						<h4>Your Daily Tasks</h4>
+						<p style="opacity:0.2;"><span class="colorful">Create</span> Things</p>
+						<p style="opacity:0.2;"><span class="colorful">Save</span> Things</p>
+						<p style="opacity:0.2;"><span class="colorful">Edit</span> Things</p>
+						<p>Save the Things <span class="colorful">Again</span></p>
+						<p style="margin:0;line-height:0;"><small><span class="colorful">^</span></small></p>
+						<small><span class="colorful">VCS comes into play at this stage.</span></small>
+					</section>
+
+					<!-- Version Tracking -->
+					<section>
+						<p>
+							<small><span class="colorful">Version Control Systems</span> keep track of every file change,<br/>and create a Version History <span class="colorful">(Database)</span><br/>from these file changes <span class="colorful">(Versions)</span>.</small>
+						</p>
+						<img style="width:50%;" src="img/LocalVersionControl.png" alt="">
+					</section>
+
+					<!-- History Tracking -->
+					<section>
+						<small><span class="colorful">Version Control Systems</span> allow the user to store<br/>a short descriptive message along with every single change.</small>
+						<img style="width:85%;" src="img/HistoryTracking.jpg" alt="">
+						<small style="font-size:0.5em;">Git can tell us who did what and when:<br/><span style="">"On <span class="colorful">April 23</span> the user <span class="colorful">Kostas</span> removed <span class="colorful">lines 30-36</span> from the file <span class="colorful">style.css</span>"</span></small>
+					</section>
+
+				</section>
+
+				<!-- What is Git? -->
+				<section>
+
+					<section>
+						<h3 class="gitcolor">What is Git?</h3>
+						<p class="fragment font-medium">Git is a very popular VCS.</p>
+						<p class="fragment font-medium">It tracks file changes and keeps a history of them <span class="colorful">(Commits)</span></p>
+						<p class="fragment font-medium">It allows for multiple users to work<br/>on a Project at the same time.</p>
+						<p class="fragment font-medium">Is supports <span class="colorful">Feature Branches</span></p>
+						<p class="fragment font-medium">Development with Git === <span class="colorful">Relax!</span></p>
+					</section>
+
+					<!-- Collaboration -->
+					<section>
+						<p>
+							<small><span class="gitcolor">Git</span> is a <span class="colorful">Distributed</span> VCS.</small><br/>
+							<small class="fragment">The Database of changes (Version History) is stored<br/>on a central Server and shared among all users.</small>
+						</p>
+						<img style="width:40%;" src="img/DistributedVCS.png" alt="">
+					</section>
+
+					<!-- Collaborative History Tracking -->
+					<section>
+						<p>
+							<small>The Distributed nature of Git enables us to keep track of<br/>each user's changes and contributions over time.</small>
+						</p>
+						<img style="width:80%;" src="img/CollabHistoryTracking.jpg" alt="">
+						
+					</section>
+				</section>
+
+				<!-- How Git Works -->
+				<section>
+				</section>
+
+				<!-- Git Hands-on -->
+				<section>
 				</section>
 
 				<!-- RESOURCES -->
@@ -314,7 +422,7 @@
 				</section>
 
 				<!-- FINALE -->
-				<section data-background="img/background-scarlet.jpg">
+				<section>
 					<p>That's all Folks!</p>
 				</section>
 
