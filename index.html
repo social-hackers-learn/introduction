@@ -107,7 +107,16 @@
 			.reveal h6.gitcolor {
 			  color: #df4c37;
 			}
-
+			.reveal .git-index { color: #f54d28; }
+			.reveal .git-add { color: #cd9f0c; }
+			.reveal .git-commit { color: #00909a; }
+			.reveal .stage-box {
+				border: 5px solid transparent;
+				padding: 40px 0px;
+			}
+			.reveal .stage-box.git-index { border-color: #f54d28; }
+			.reveal .stage-box.git-add { border-color: #cd9f0c; }
+			.reveal .stage-box.git-commit { border-color: #00909a; }
 		</style>
 		<!-- Bulma.io -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
@@ -425,7 +434,45 @@
 
 					<section>
 						<h3 class="gitcolor">The Three Stages of Git</h3>
-						<p class="Dfragment font-medium">Git is a very popular VCS.</p>
+
+						<div class="columns" style="margin-bottom:0;">
+							<div class="column">
+								<p>
+									<small><span class="git-index">Working Directory</span><br/>Untracked Files</small>
+								</p>
+							</div>
+							<div class="column"></div>
+							<div class="column">
+								<p>
+									<small><span class="git-add">Staging Area</span><br/>Tracked Files</small>
+								</p>
+							</div>
+							<div class="column"></div>
+							<div class="column">
+								<p>
+									<small><span class="git-commit">Git Repository</span><br/>Commited Files<br/>(Version History)</small>
+								</p>
+							</div>
+						</div>
+
+						<div class="columns">
+							<div class="column git-index stage-box">
+								<img style="width:50%;margin:0 auto;" class="img-clean" src="img/css-file.svg" alt="">
+							</div>
+							<div class="column">
+								<small>-- git <span class="git-add">add</span> --&gt;</small>
+							</div>
+							<div class="column git-add stage-box">
+								<img style="width:50%;margin:0 auto;" class="img-clean" src="img/css-file.svg" alt="">
+							</div>
+							<div class="column">
+								<small>-- <span class="git-commit">commit</span> --&gt;</small>
+							</div>
+							<div class="column git-commit stage-box">
+								<img style="width:50%;margin:0 auto;" class="img-clean" src="img/css-file.svg" alt="">
+							</div>
+						</div>
+
 					</section>
 
 				</section>
