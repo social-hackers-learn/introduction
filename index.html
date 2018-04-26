@@ -1,1 +1,357 @@
-<h1>Work in Progress...</h1>
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Git Oversimplified | Social Hackers Academy</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Kosmas Pouianou, Kostas Minaidis">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="./libs/revealjs/css/reveal.css">
+		<link rel="stylesheet" href="./libs/revealjs/css/theme/black-sha.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./libs/revealjs/lib/css/monokai-sublime-sha.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? './libs/revealjs/css/print/pdf.css' : './libs/revealjs/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!-- VIMEO -->
+		<script src="https://player.vimeo.com/api/player.js"></script>
+
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			.reveal .block-center {
+				margin: 0 auto;
+			}
+			.reveal img.img-clean {
+				border: none;
+				background: transparent;
+				display: block;
+				box-shadow: none;
+			}
+			.reveal .two_columns {
+				display: flex;
+				justify-content: center;				
+			}
+			.reveal .col_one,
+			.reveal .col_two {
+    			padding: 0 40px;
+			}
+			.reveal .subs .col_one, 
+			.reveal .subs .col_two {
+			    padding: 0 100px;
+			}
+			.reveal .fullclear {
+				margin: 0;
+				padding: 0;
+			}
+			.reveal .font-half {
+				font-size: 0.5em;
+			}
+			.reveal .slides section .fragment.highlight-orange,
+			.reveal .slides section .fragment.highlight-current-orange {
+			  opacity: 1;
+			  visibility: inherit; 
+			}
+
+			.reveal .slides section .fragment.highlight-orange.visible {
+			  color: #F7BE2C; 
+			}
+
+			.reveal .slides section .fragment.highlight-current-orange.current-fragment {
+			  color: #F7BE2C; 
+			}
+			.reveal .lightblue {
+				color: #3ca1e6;
+			}
+		</style>
+		<!-- Bulma.io -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<!-- INTRO -->
+				<section>
+					<h1>Git 101</h1>
+					<h3 class="colorful">A Gentle Introduction to Version Control, Git &amp; GitHub</h3>
+					<p>
+						<small><a href="https://github.com/kostasx">Kostas Minaidis</a></small>
+						<br/><small class="font-half">Instructor at Social Hackers Academy</small>
+					</p>
+				</section>
+
+				<!-- TABLE OF CONTENTS [WiP] -->   
+				<section>
+					<h2>Table of Contents</h2>
+					<ul class="small">
+						<li>Version Control</li>
+						<li>Git</li>
+						<li>GitHub</li>
+						<li>Hands-on</li>
+					</ul>
+				</section>
+
+				<!-- WORKING WITHOUT VCS -->
+				<section>
+
+					<!-- What does it mean to work without VCS? -->
+					<section>
+						<h4>Prelude</h4>
+						<h3 class="fragment colorful">What does it mean to work<br/>without Version Control?</h3>
+					</section>
+
+					<!-- Working without a VCS -->
+					<section data-state="without-vcs">
+
+						<div class="columns">
+						  <div class="column is-4">index.html</div>
+						  <div class="column is-7">style.css</div>
+						 </div>
+
+						<div class="columns">
+						  <div class="column is-4">
+							<svg version="1.1" id="browser-site" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 58" style="enable-background:new 0 0 58 58;" xml:space="preserve">
+								<rect style="fill:#ECF0F1;" width="58" height="58"/>
+								<rect style="fill:#546A79;" width="58" height="12"/>
+								<circle style="fill:#ED7161;" cx="6" cy="6" r="3"/>
+								<circle style="fill:#F0C419;" cx="15" cy="6" r="3"/>
+								<circle style="fill:#4FBA6F;" cx="24" cy="6" r="3"/>
+								<rect class="site-sidebar" x="45" y="17" style="fill:#BDC3C7;" width="8" height="36"/>
+								<rect class="site-menu" x="5" y="17" style="fill:#BDC3C7;" width="8" height="36"/>
+								<rect class="site-footer" x="18" y="47" style="fill:#71C285;" width="22" height="6"/>
+								<rect class="site-header" x="18" y="17" style="fill:#71C285;" width="22" height="12"/>
+								<path style="fill:#BDC3C7;" d="M28,34h-9c-0.552,0-1-0.448-1-1s0.448-1,1-1h9c0.552,0,1,0.448,1,1S28.552,34,28,34z"/>
+								<path style="fill:#BDC3C7;" d="M39,38H19c-0.552,0-1-0.448-1-1s0.448-1,1-1h20c0.552,0,1,0.448,1,1S39.552,38,39,38z"/>
+								<path style="fill:#BDC3C7;" d="M39,42H19c-0.552,0-1-0.448-1-1s0.448-1,1-1h20c0.552,0,1,0.448,1,1S39.552,42,39,42z"/>
+								<g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+							</svg>
+						  </div>
+						  <div class="column">&nbsp;</div>
+						  <script>  
+						  	var render = function(a,b){return a.replace(/\${(\w+)}/ig,function(a,c){return b[c]!=[]._?b[c]:a})}
+						  </script>
+						  <script id="browser-contents" type="text/template">
+.header {
+
+  background-color: ${headercolor};
+
+}
+
+.footer {
+
+  background-color: ${footercolor};
+
+}
+						  </script>
+						  <div class="column is-7">
+							<pre><code id="browser-code" class="hljs css" data-trim contenteditable>
+								</code></pre>
+						  </div>
+						</div>
+
+						<div class="columns">
+						  <div style="font-size: 0.7em;" data-day="day-monday" class="column fragment grow highlight-orange">
+						    Monday
+						  </div>
+						  <div style="font-size: 0.7em;" data-day="day-tuesday" class="column fragment grow highlight-orange">
+						    Tuesday
+						  </div>
+						  <div style="font-size: 0.7em;" data-day="day-wednesday" class="column fragment grow highlight-orange">
+						    Wednesday
+						  </div>
+						  <div style="font-size: 0.7em;" data-day="day-thursday" class="column fragment grow highlight-orange">
+						    Thursday
+						  </div>
+						  <div style="font-size: 0.7em;" data-day="day-friday" class="column fragment grow highlight-orange">
+						    Friday
+						  </div>
+						</div>
+
+					</section>					
+
+					<section>
+						<h3 class="colorful">No VCS means:</h3>
+						<p class="fragment" style="font-size:0.8em;">No control over our changes. They are permanent.</p>
+						<p class="fragment" style="font-size:0.8em;">We cannot revert to a previous state.</p>
+						<p class="fragment" style="font-size:0.8em;">There is no descriptive history of the changes.</p>
+						<p class="fragment" style="font-size:0.8em;">It is almost impossible to work collaboratively.</p>
+					</section>
+
+				</section>
+
+				<!-- VERSION CONTROL -->
+				<section>
+
+					<!-- What is a Version Control System? -->
+					<section>
+						<h3 class="colorful">Version Control System (VCS)</h3>
+						<p class="fragment">A system that records changes to a file or set of files over time so that you can recall specific versions later.</p>
+						<p class="fragment">A system that enables collaboration: A Team of people working on one Project, on the same files.</p>
+					</section>
+
+					<!-- Features of VCS -->
+					<section>
+						<p>It allows you to:</p>
+						<ul style="list-style:none;">
+							<li class="fragment"><small>&bull; Revert selected files back to a previous state<br/></small></li>
+							<li class="fragment"><small>&bull; Revert the entire project back to a previous state</small></li>
+							<li class="fragment"><small>&bull; Compare changes over time</small></li>
+							<li class="fragment"><small>&bull; See who last modified something that might be causing a problem</small></li>
+						</ul>
+						<p>
+							<small class="fragment">
+								<strong class="colorful">Using a VCS also generally means that<br/>if you screw things up or lose files, you can easily recover.</strong>
+							</small>
+						</p>
+					</section>
+
+				</section>
+
+				<!-- RESOURCES -->
+				<section>
+				</section>
+
+				<!-- FINALE -->
+				<section data-background="img/background-scarlet.jpg">
+					<p>That's all Folks!</p>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="./libs/revealjs/lib/js/head.min.js"></script>
+		<script src="./libs/revealjs/js/reveal.js"></script>
+
+		<script>
+
+			/* SHA */
+			Reveal.configure({
+				keyboard: {
+					// Key: 'e'
+				    69: function(){
+				    	/*
+				    	IF NOT EXIST
+							<PRE>.insertAdjacentHTML('afterend', code);
+						EVALUATE 
+							eval( <PRE>.textContent )
+						*/
+				    }
+				  }
+			});
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: './libs/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: './libs/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: './libs/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: './libs/revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: './libs/revealjs/plugin/search/search.js', async: true },
+					{ src: './libs/revealjs/plugin/zoom-js/zoom.js', async: true },
+					{ src: './libs/revealjs/plugin/notes/notes.js', async: true }
+				]
+			});
+
+			/* SHA */
+			Reveal.addEventListener( 'evaluation', function() {
+				console.log( 'Evaluation!' );
+			});
+
+			let highlightCSS = function(){
+
+				let contents = document.querySelector("#browser-contents").textContent;
+					contents = render(contents, { 'headercolor': '#71C285', 'footercolor': '#71C285' });
+					let css = document.querySelector("#browser-code");
+					css.textContent = contents;
+					hljs.highlightBlock(css);
+
+			}
+
+			window.addEventListener("load",function(){
+				// highlightCSS();
+			});
+
+			Reveal.addEventListener( 'without-vcs', function( event ) {
+				highlightCSS();
+			});
+
+			let changeDaysColors = function(){
+
+				let $browserSite = document.querySelector("#browser-site");
+				let day = event.fragment.getAttribute('data-day');
+				let contents = document.querySelector("#browser-contents").textContent;
+				let css = document.querySelector("#browser-code");
+
+				let changeColor = function(colors){
+
+					contents = render(contents, { 'headercolor': colors.header, 'footercolor': colors.footer });
+					css.textContent = contents;
+					hljs.highlightBlock(css);
+					window.poop = document.querySelector("#browser-site .site-header");
+					document.querySelector("#browser-site .site-header").style.fill = colors.header;
+					document.querySelector("#browser-site .site-footer").style.fill = colors.footer;
+				}
+
+				if ( day ){
+
+					day = day.replace('day-','');
+					switch (day){
+						case "monday":
+						 changeColor({ header: '#ff69b4', footer: '#71C285' });
+						 break;
+						case "tuesday":
+						 changeColor({ header: '#ff69b4', footer: '#185d2c' });
+						 break;
+						case "wednesday":
+						 changeColor({ header: '#457aa5', footer: '#457aa5' });
+						 break;
+						case "thursday":
+						 changeColor({ header: '#a57d45', footer: '#457aa5' });
+						 break;
+						case "friday":
+						 changeColor({ header: '#457aa5', footer: '#ad2222' });
+						 break;
+					}	
+
+				}
+
+			}
+
+			Reveal.addEventListener( 'fragmenthidden', function( event ){});
+			Reveal.addEventListener( 'fragmentshown', function( event ){ changeDaysColors(); });
+
+		</script>
+
+	</body>
+</html>
