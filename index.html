@@ -104,6 +104,7 @@
 			.reveal small.gitcolor,
 			.reveal h4.gitcolor,
 			.reveal h5.gitcolor,
+			.reveal p.gitcolor,
 			.reveal h6.gitcolor {
 			  color: #df4c37;
 			}
@@ -437,11 +438,10 @@
 					<section>
 						<p class="colorful"><strong class="colorful">Step 1</strong></p>
 						<p class="font-medium">In order for Git to start tracking our Project's files<br/>we first have to initialize our Project's folder</p>
-						<p class="fragment font-medium">Go to your Project Directory:</p>
-						<p class="fragment font-medium"><span class="colorful">&gt; cd myProject</span></p>
-						<p class="fragment font-medium">Initialize with Git:</p>
-						<p class="fragment font-medium"><span class="colorful">&gt; git init</span></p>
-						<p class="fragment font-medium">That's it! Git can now start tracking all changes.</p>
+						<p class="fragment font-medium">Go to your Project Directory:<br/><span class="colorful">&gt; cd myProject</span></p>
+						<p class="fragment font-medium">Initialize with Git:<br/><span class="colorful">&gt; git init</span></p>
+						<p class="fragment"><small class="font-half colorful">Git has just created a <span class="colorful">.git</span> folder inside your Project's folder.<br/>All tracking data and information will be stored inside this folder.</small></p>
+						<p class="fragment gitcolor font-medium">That's it! Git can now start tracking all changes.</p>
 					</section>
 
 					<!-- Three Stages of Git -->
@@ -518,10 +518,19 @@
 							</div>
 						</div>
 						<hr>
-						<small>	<span class="colorful">git status</span> is used to understand what stage the files in a repository are at.</small>
-
-
+						<small>The <span class="colorful">git status</span> command is used to understand<br/>what stage the files in a repository are at.</small>
 					</section>
+
+					<!-- Three Stages of Git :: Video -->
+					<section>
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/ihKRRWBVn5k?start=263&end=427" frameborder="0" allowfullscreen></iframe>
+					</section>
+
+					<!-- TODO: GitHub, Remote Servers, Push and Pull -->
+					<!--
+					<section></section>
+					-->
+
 				</section>
 
 				<section data-transition="slide" data-background="#F7BE2C" data-background-transition="zoom">
@@ -537,10 +546,26 @@
 
 				<!-- Terminology -->
 				<section>
+					<p class="font-half">
+						<span class="colorful">Commit(s):</span> Git's way of saving (changes) into its History of Changes Database.
+					</p>
+					<p class="font-half"><span class="colorful">Repository (Repo) / Project:</span> All Changes are tracked here</p>
+					<p class="font-half">
+						<span class="colorful">Staging:</span> Control what gets Commited.
+					</p>
+					<p class="font-half"><span class="colorful">Working Directory:</span> Where our Project lives</p>
+				</section>
+
+				<!-- Git Commands -->
+				<section>
+					<h4>Git Commands Cheatsheet</h4>
 				</section>
 
 				<!-- RESOURCES -->
 				<section>
+					<p>
+						<a href="https://www.youtube.com/watch?v=ihKRRWBVn5k">Git Tutorial for Beginners 4 Git Concepts and Architecture</a>
+					</p>
 				</section>
 
 				<!-- FINALE -->
